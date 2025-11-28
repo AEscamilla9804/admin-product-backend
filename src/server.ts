@@ -22,6 +22,7 @@ const server = express();
 // Body Parsing Middleware
 server.use(express.json())
 
+// Testing Route
 server.get('/api', (req, res) => {
     res.json('From API')
 })
