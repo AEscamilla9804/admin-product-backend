@@ -39,7 +39,7 @@ router.put('/:id',
         .notEmpty().withMessage('Product price cannot be empty')
         .isNumeric().withMessage('Product price must be a number')
         .custom(value => value > 0).withMessage('Product price must be greater than 0'),
-    body('avilability').isBoolean().withMessage('Invalid availability value'),
+    body('availability').isBoolean().withMessage('Invalid availability value'),
     handleInputErrors,
     updateProduct,
 );
