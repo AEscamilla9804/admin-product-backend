@@ -2,11 +2,22 @@ import { Request, Response } from 'express'
 import Product from '../models/Product.model'
 
 export const createProduct = async (req: Request, res: Response) => {
+    console.time("A-Start");
+    console.time("B-Validation");
+    console.time("C-DB");
+
     try {
-        const product = await Product.create(req.body)
-        res.status(201).json({ data: product })
+        console.timeEnd("A-Start");
+
+        // Your validation
+        console.timeEnd("B-Validation");
+
+        const product = await Product.create(req.body);
+        console.timeEnd("C-DB");
+
+        res.status(201).json(product);
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 
