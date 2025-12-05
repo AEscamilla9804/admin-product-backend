@@ -2,6 +2,7 @@ import express from 'express'
 import colors from 'colors'
 import swaggerUi from 'swagger-ui-express'
 import cors, { CorsOptions } from 'cors'
+import morgan from 'morgan'
 import swaggerSpec, { swaggerUiOptions } from './config/swagger';
 import router from './router';
 import db from './config/db';
@@ -37,6 +38,9 @@ server.use(cors(corsOptions));
 
 // Body Parsing Middleware
 server.use(express.json())
+
+// Morgan logging
+server.use(morgan('dev'));
 
 // Routing
 server.use('/api/products', router)
