@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "moduleResolution": "nodenext",
+        "module": "nodenext",
+        "rootDir": "src",
+        "outDir": "dist",
+        "strict": false,
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "declaration": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "isolatedModules": true,
+        "typeRoots": ["./node_modules/@types"],
+        "types": ["jest"]
+    },
+    "include": ["src/**/*.ts", "__tests__/**/*.ts"]
+}
