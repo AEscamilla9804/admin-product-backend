@@ -15,5 +15,6 @@
         "typeRoots": ["./node_modules/@types"],
         "types": ["jest"]
     },
-    "include": ["src/**/*.ts", "__tests__/**/*.ts"]
+    "include": ["src/**/*.ts"],
+    "exclude": ["src/**/*.test.ts"]
 }
