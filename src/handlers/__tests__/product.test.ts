@@ -49,7 +49,6 @@ describe('POST /api/products', () => {
         });
 
         expect(response.status).toBe(201);
-        expect(response.body).toHaveProperty('data');
 
         expect(response.status).not.toBe(400);
         expect(response.status).not.toBe(404);

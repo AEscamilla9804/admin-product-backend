@@ -9,9 +9,9 @@
   "scripts": {
     "dev": "nodemon --watch src --ext ts --exec ts-node src/index.ts",
     "build": "tsc",
-    "test": "jest --detectOpenHandles",
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles",
     "test:coverage": "npm run pretest && jest --detectOpenHandles --coverage",
-    "pretest": "ts-node ./src/data --clear"
+    "pretest": "cross-env NODE_ENV=test ts-node ./src/data --clear"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
@@ -21,6 +21,7 @@
     "@types/supertest": "^6.0.3",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.8",
+    "cross-env": "^10.1.0",
     "jest": "^30.2.0",
     "nodemon": "^3.1.11",
     "supertest": "^7.1.4",

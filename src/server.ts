@@ -19,13 +19,22 @@ export async function connectDB() {
     }
 }
 
-connectDB();
+if (process.env.NODE_ENV !== 'test') {
+    connectDB();
+}
 
 const server = express();
 
 // CORS Config
 const corsOptions : CorsOptions = {
     origin: function(origin, callback) {
+        if (process.env.NODE_ENV === 'test') {
+            callback(null, true); // allow Supertest
+            return;
+        }
+
+        if (!origin) return callback(null, true);
+
         if (origin === process.env.CLIENT_URL) {
             callback(null, true);
         } else {
